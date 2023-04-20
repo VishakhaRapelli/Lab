@@ -1,37 +1,33 @@
-package Methodover;
-class Vehicle {
-    private String brand;
-    private String model;
-    private int year;
-
-    public Vehicle(String brand, String model, int year) {
-        this.brand = brand;
-        this.model = model;
-        this.year = year;
-    }
-
-    public void drive() {
-        System.out.println(this.brand + " " + this.model + " " + this.year + " is driving.");
-    }
-}
-class Car extends Vehicle {
-    private String color;
-
-    public Car(String brand, String model, int year, String color) {
-        super(brand, model, year);
-        this.color = color;
-    }
-
-     void honk() {
-     System.out.println(this.brand + " " + this.model + " " + this.year + " in " + this.color + " is honk the horn.");
-    }
-}
-
+package Array;
 public class Eg2 {
-    public static void main(String[] args) {
-        Car myCar = new Car("Ford", "Mustang", 2022, "Red");
-        myCar.drive();
-        myCar.honk();
-    }
+	public class CommonElementsFinder {
 
+	    public static void findCommonElements(int[] arr1, int[] arr2, int[] arr3) {
+	        int i = 0, j = 0, k = 0;
+
+	        while (i < arr1.length && j < arr2.length && k < arr3.length) {
+	            if (arr1[i] == arr2[j] && arr2[j] == arr3[k]) {
+	                System.out.println(arr1[i]);
+	                i++;
+	                j++;
+	                k++;
+	            } else if (arr1[i] < arr2[j]) {
+	                i++;
+	            } else if (arr2[j] < arr3[k]) {
+	                j++;
+	            } else {
+	                k++;
+	            }
+	        }
+	    }
+
+	    public static void main(String[] args) {
+	        int[] arr1 = {1, 3, 5, 7, 9};
+	        int[] arr2 = {2, 3, 4, 5, 6};
+	        int[] arr3 = {3, 5, 7, 8, 9};
+	        System.out.println("Common elements from three sorted arrays:");
+	        findCommonElements(arr1, arr2, arr3);
+	    }
+	}
 }
+
