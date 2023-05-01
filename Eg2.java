@@ -1,33 +1,25 @@
-package Array;
+package String;
 public class Eg2 {
-	public class CommonElementsFinder {
+	public static void main(String[] args) {
+		StringBuffer sb = new StringBuffer("This is StringBuffer");
 
-	    public static void findCommonElements(int[] arr1, int[] arr2, int[] arr3) {
-	        int i = 0, j = 0, k = 0;
+        // Adds the string "- This is a sample program" to existing string and display it.
+        sb.append("- This is a sample program");
+        System.out.println("Appended string: " + sb);
 
-	        while (i < arr1.length && j < arr2.length && k < arr3.length) {
-	            if (arr1[i] == arr2[j] && arr2[j] == arr3[k]) {
-	                System.out.println(arr1[i]);
-	                i++;
-	                j++;
-	                k++;
-	            } else if (arr1[i] < arr2[j]) {
-	                i++;
-	            } else if (arr2[j] < arr3[k]) {
-	                j++;
-	            } else {
-	                k++;
-	            }
-	        }
-	    }
+        // Inserts the string "Object" into the existing string at 21st position and display it.
+        sb.insert(21, "Object ");
+        System.out.println("Inserted string: " + sb);
 
-	    public static void main(String[] args) {
-	        int[] arr1 = {1, 3, 5, 7, 9};
-	        int[] arr2 = {2, 3, 4, 5, 6};
-	        int[] arr3 = {3, 5, 7, 8, 9};
-	        System.out.println("Common elements from three sorted arrays:");
-	        findCommonElements(arr1, arr2, arr3);
-	    }
+        // Reverses the entire string and displays it.
+        sb.reverse();
+        System.out.println("Reversed string: " + sb);
+
+        // Replaces the word "Buffer" with "Builder" and display it.
+        int index = sb.indexOf("Buffer");
+        sb.replace(index, index + "Buffer".length(), "Builder");
+        System.out.println("Replaced string: " + sb);
+    }
 	}
-}
+
 

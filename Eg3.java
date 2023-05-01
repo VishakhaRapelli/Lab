@@ -1,34 +1,43 @@
-package Methodover;
-class Person {
-    private String name;
-    private int age;
+package String;
+abstract class Shape {
+    abstract double calculateArea();
+}
 
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
+class Circle extends Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
     }
 
-    public void speak() {
-        System.out.println("Hello, my name is " + this.name + " and I am " + this.age + " years old.");
+    @Override
+    double calculateArea() {
+        return Math.PI * radius * radius;
     }
 }
-class Student extends Person {
-    private int grade;
 
-    public Student(String name, int age, int grade) {
-        super(name, age);
-        this.grade = grade;
+class Rectangle extends Shape {
+    private double length;
+    private double width;
+
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
     }
 
-    public void study() {
-        System.out.println(this.name + " is studying in grade " + this.grade + ".");
-
+    @Override
+    double calculateArea() {
+        return length * width;
     }
 }
+
 public class Eg3 {
-	public static void main(String[] args) {
-        Student student = new Student("John", 18, 12);
-        student.speak();
-        student.study();
-    }
+	 public static void main(String[] args) {
+	        Circle circle = new Circle(5);
+	        System.out.println("Area of circle: " + circle.calculateArea());
+
+	        Rectangle rectangle = new Rectangle(4, 6);
+	        System.out.println("Area of rectangle: " + rectangle.calculateArea());
+	    }
+
 }

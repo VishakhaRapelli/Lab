@@ -1,39 +1,51 @@
-package Methodover;
-class Bank {
-    public float getRateOfInterest() {
-        return 0.0f;
+package String;
+abstract class BankAccount {
+    private int accountNumber;
+    private double balance;
+
+    public BankAccount(int accountNumber, double balance) {
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+
+    abstract void deposit(double amount);
+
+    abstract void withdraw(double amount);
+
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+
+    public double getBalance() {
+        return balance;
     }
 }
 
-class SBI extends Bank {
-    @Override
-    public float getRateOfInterest() {
-        return 8.0f;
-    }
-}
+class CheckingAccount extends BankAccount {
 
-class ICICI extends Bank {
-    @Override
-    public float getRateOfInterest() {
-        return 9.0f;
+    public CheckingAccount(int accountNumber, double balance) {
+        super(accountNumber, balance);
     }
-}
-class AXIS extends Bank {
+
     @Override
-    public float getRateOfInterest() {
-        return 7.0f;
+    void deposit(double amount) {
+        double newBalance = getBalance() + amount;
+        System.out.println("Deposited amount: " + amount);
+        System.out.println("New balance: " + newBalance);
+    }
+
+    @Override
+    void withdraw(double amount) {
+        double newBalance = getBalance() - amount;
+        System.out.println("Withdrawn amount: " + amount);
+        System.out.println("New balance: " + newBalance);
     }
 }
 public class Eg4 {
-    public static void main(String[] args) {
-        SBI sbi = new SBI();
-        ICICI icici = new ICICI();
-        AXIS axis = new AXIS();
-        System.out.println("SBI Rate of Interest: " + sbi.getRateOfInterest());
-        System.out.println("ICICI Rate of Interest: " + icici.getRateOfInterest());
-        System.out.println("AXIS Rate of Interest: " + axis.getRateOfInterest());
+	public static void main(String[] args) {
+        CheckingAccount checkingAccount = new CheckingAccount(12345, 1000);
+
+        checkingAccount.deposit(500);
+        checkingAccount.withdraw(200);
     }
 }
-
-
-
